@@ -1,7 +1,7 @@
 import React from 'react';
 import {EditableTimer} from '../EditableTimer/EditableTimer';
 
-export const EditableTimersList = () => {
+export const EditableTimersList = (props) => {
     return (
         <div>
             <EditableTimer

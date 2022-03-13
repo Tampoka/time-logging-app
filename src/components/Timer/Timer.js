@@ -5,7 +5,6 @@ import {AiFillEdit} from 'react-icons/ai'
 import {BsFillTrashFill} from 'react-icons/bs'
 
 export const Timer = (props) => {
-    console.log(Date.now())
     const elapsedString=renderElapsedString(props.elapsed)
     return (
         <div className={s.timerContainer}>
