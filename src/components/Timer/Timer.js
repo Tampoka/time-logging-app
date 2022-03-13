@@ -5,11 +5,14 @@ import {AiFillEdit} from 'react-icons/ai'
 import {BsFillTrashFill} from 'react-icons/bs'
 
 export const Timer = (props) => {
+    console.log(Date.now())
     const elapsedString=renderElapsedString(props.elapsed)
     return (
         <div className={s.timerContainer}>
             <div className={s.content}>
-                <div className={s.header}>{props.title}</div>
+                <div className={s.header}>
+                <h3>{props.title}</h3>
+                </div>
                 <div className={s.meta}>{props.project}</div>
                 <div className={s.description}>
                     <h2>{elapsedString}</h2>
@@ -18,9 +21,9 @@ export const Timer = (props) => {
                     <span><i><AiFillEdit/></i></span>
                     <span><i><BsFillTrashFill/></i></span>
                 </div>
-            </div>
-            <div className={s.bottomButton}>
-                <button>Start</button>
+                <div className={s.bottomButton}>
+                    <button>Start</button>
+                </div>
             </div>
         </div>
     );

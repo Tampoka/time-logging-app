@@ -1,6 +1,8 @@
 import React from 'react';
 import {TimerForm} from '../TimerForm/TimerForm';
-import {BsPlusLg} from 'react-icons/bs'
+import {BsPlusLg} from 'react-icons/bs';
+import s from './ToggleableTimerForm.module.scss'
+
 
 export const ToggleableTimerForm = (props) => {
     if (props.isOpen) {
@@ -9,7 +11,7 @@ export const ToggleableTimerForm = (props) => {
         )
     } else {
         return (
-            <div>
+            <div className={s.plusButton}>
                 <button><i><BsPlusLg/></i></button>
             </div>
         )
