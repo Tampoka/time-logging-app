@@ -17,7 +17,7 @@ export const TimerForm = (props) => {
                     </div>
                     <div className={s.bottomButtons}>
                         <button className={s.button}>{submitText}</button>
-                        <button className={s.button}>Cancel</button>
+                        <button className={s.button} onClick={props.closeForm}>Cancel</button>
                     </div>
                 </div>
             </div>

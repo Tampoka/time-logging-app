@@ -5,12 +5,12 @@ import {AiFillEdit} from 'react-icons/ai'
 import {BsFillTrashFill} from 'react-icons/bs'
 
 export const Timer = (props) => {
-    const elapsedString=renderElapsedString(props.elapsed)
+    const elapsedString = renderElapsedString(props.elapsed)
     return (
         <div className={s.timerContainer}>
             <div className={s.content}>
                 <div className={s.header}>
-                <h3>{props.title}</h3>
+                    <h3>{props.title}</h3>
                 </div>
                 <div className={s.meta}>{props.project}</div>
                 <div className={s.description}>

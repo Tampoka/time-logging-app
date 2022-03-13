@@ -1,18 +1,27 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {TimerForm} from '../TimerForm/TimerForm';
 import {BsPlusLg} from 'react-icons/bs';
 import s from './ToggleableTimerForm.module.scss'
 
 
-export const ToggleableTimerForm = (props) => {
-    if (props.isOpen) {
+export const ToggleableTimerForm = () => {
+    const [isOpen, setIsOpen] = useState(false)
+
+    const handleFormOpen = () => {
+        setIsOpen(true)
+    }
+    const handleFormClose = () => {
+        setIsOpen(false)
+    }
+
+    if (isOpen) {
         return (
-            <TimerForm/>
+            <TimerForm closeForm={handleFormClose}/>
         )
     } else {
         return (
             <div className={s.plusButton}>
-                <button><i><BsPlusLg/></i></button>
+                <button onClick={handleFormOpen}><i><BsPlusLg/></i></button>
             </div>
         )
     }
