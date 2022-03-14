@@ -16,7 +16,7 @@ export const ToggleableTimerForm = () => {
 
     if (isOpen) {
         return (
-            <TimerForm closeForm={handleFormClose}/>
+            <TimerForm onFormClose={handleFormClose}/>
         )
     } else {
         return (
