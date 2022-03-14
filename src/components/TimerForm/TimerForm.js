@@ -7,7 +7,7 @@ export const TimerForm = (props) => {
     const [projectProps] = useInput(props.project || '')
 
     const handleSubmit = () => {
-        props.onFormSubmit = () => ({
+        props.onFormSubmit({
             id: props.id,
             title: titleProps.value,
             project: projectProps.value

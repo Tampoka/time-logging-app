@@ -1,10 +1,11 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {EditableTimersList} from '../EditableTimersList/EditableTimersList';
 import {ToggleableTimerForm} from '../ToggleableTimerForm/ToggleableTimerForm';
 import {v4} from 'uuid';
+import {newTimer} from '../../helpers/helpers';
 
 export const TimersDashBoard = () => {
-    const timers = [
+    const timersArray = [
         {
             title: 'Practice squat',
             project: 'Gym Chores',
@@ -21,17 +22,21 @@ export const TimersDashBoard = () => {
         },
     ]
 
-    const handleCreateFormSubmit=(timer)=>{
+    const [timers, setTimers] = useState(timersArray)
+
+    const handleCreateFormSubmit = (timer) => {
         createTimer(timer)
     }
 
-    const createTimer=(timer)=>{
-
+    const createTimer = (timer) => {
+        const t = newTimer(timer)
+        setTimers(timers.concat(t))
     }
+
     return (
         <div>
-            <EditableTimersList timers={timers}/>
-            <ToggleableTimerForm/>
+            <EditableTimersList timers={timersArray}/>
+            <ToggleableTimerForm onFormSubmit={handleCreateFormSubmit}/>
         </div>
     );
 };

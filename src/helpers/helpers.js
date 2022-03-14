@@ -34,6 +34,7 @@ export function newTimer(attrs = {}) {
         project: attrs.project || 'Project',
         id: v4(),
         elapsed: 0,
+        runningSince: null
     };
 
     return timer;
