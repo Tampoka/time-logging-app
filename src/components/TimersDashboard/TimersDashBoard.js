@@ -20,6 +20,14 @@ export const TimersDashBoard = () => {
             runningSince: null,
         },
     ]
+
+    const handleCreateFormSubmit=(timer)=>{
+        createTimer(timer)
+    }
+
+    const createTimer=(timer)=>{
+
+    }
     return (
         <div>
             <EditableTimersList timers={timers}/>

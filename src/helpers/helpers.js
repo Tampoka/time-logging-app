@@ -1,3 +1,5 @@
+import {v4} from 'uuid';
+
 export function renderElapsedString(elapsed, runningSince) {
     let totalElapsed = elapsed;
     if (runningSince) {
@@ -24,4 +26,24 @@ function pad(numberString, size) {
     let padded = numberString;
     while (padded.length < size) padded = `0${padded}`;
     return padded;
+}
+
+export function newTimer(attrs = {}) {
+    const timer = {
+        title: attrs.title || 'Timer',
+        project: attrs.project || 'Project',
+        id: v4(),
+        elapsed: 0,
+    };
+
+    return timer;
+}
+
+export function findById(array, id, cb) {
+    array.forEach((el) => {
+        if (el.id === id) {
+            cb(el);
+            return;
+        }
+    });
 }
