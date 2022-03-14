@@ -9,12 +9,12 @@ export const TimerForm = (props) => {
     const handleSubmit = () => {
         props.onFormSubmit = () => ({
             id: props.id,
-            title: props.title,
-            project: props.project
+            title: titleProps.value,
+            project: projectProps.value
         })
     }
 
-    const submitText = props.title ? 'Update' : 'Create'
+    const submitText = props.id ? 'Update' : 'Create'
     return (
         <div className={s.timerFormContainer}>
             <div className={s.content}>

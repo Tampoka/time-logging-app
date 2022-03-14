@@ -4,7 +4,7 @@ import {BsPlusLg} from 'react-icons/bs';
 import s from './ToggleableTimerForm.module.scss'
 
 
-export const ToggleableTimerForm = () => {
+export const ToggleableTimerForm = (props) => {
     const [isOpen, setIsOpen] = useState(false)
 
     const handleFormOpen = () => {
@@ -14,9 +14,15 @@ export const ToggleableTimerForm = () => {
         setIsOpen(false)
     }
 
+    const handleFormSubmit = (timer) => {
+        props.onFormSubmit(timer)
+        setIsOpen(false)
+    }
     if (isOpen) {
         return (
-            <TimerForm onFormClose={handleFormClose}/>
+            <TimerForm
+                onFormClose={handleFormClose}
+                onFormSubmit={handleFormSubmit}/>
         )
     } else {
         return (
