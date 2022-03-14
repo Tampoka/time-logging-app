@@ -1,7 +1,12 @@
 import React from 'react';
 import s from './TimerForm.module.scss'
+import {useInput} from '../../customHooks/useInput';
 
 export const TimerForm = (props) => {
+    const [titleProps]=useInput(props.title)
+    const [projectProps]=useInput(props.project)
+    console.log(titleProps.value)
+
     const submitText = props.title ? 'Update' : 'Create'
     return (
         <div className={s.timerFormContainer}>
@@ -9,11 +14,11 @@ export const TimerForm = (props) => {
                 <div className={s.form}>
                     <div className={s.inputField}>
                         <label>Title</label>
-                        <input type="text" defaultValue={props.title}/>
+                        <input type="text" {...titleProps}/>
                     </div>
                     <div className={s.inputField}>
                         <label>Project</label>
-                        <input type="text" defaultValue={props.project}/>
+                        <input type="text" {...projectProps}/>
                     </div>
                     <div className={s.bottomButtons}>
                         <button className={s.button}>{submitText}</button>

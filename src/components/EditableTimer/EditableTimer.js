@@ -3,7 +3,7 @@ import {TimerForm} from '../TimerForm/TimerForm';
 import {Timer} from '../Timer/Timer';
 
 export const EditableTimer = (props) => {
-    const [editFormOpen, setEditFormOpen] = useState(false)
+    const [editFormOpen, setEditFormOpen] = useState(true)
     if (editFormOpen) {
         return (
             <TimerForm
