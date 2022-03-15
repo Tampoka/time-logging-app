@@ -17,7 +17,7 @@ export const Timer = (props) => {
                     <h2>{elapsedString}</h2>
                 </div>
                 <div className={s.extraContent}>
-                    <span><i><AiFillEdit/></i></span>
+                    <span onClick={props.onEditClick}><i><AiFillEdit/></i></span>
                     <span><i><BsFillTrashFill/></i></span>
                 </div>
                 <div className={s.bottomButton}>

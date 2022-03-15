@@ -35,7 +35,7 @@ export const TimersDashBoard = () => {
 
     return (
         <div>
-            <EditableTimersList timers={timersArray}/>
+            <EditableTimersList timers={timers}/>
             <ToggleableTimerForm onFormSubmit={handleCreateFormSubmit}/>
         </div>
     );
