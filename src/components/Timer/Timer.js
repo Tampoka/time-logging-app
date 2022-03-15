@@ -1,15 +1,24 @@
-import React from 'react';
+import React, {useEffect, useReducer} from 'react';
 import s from './Timer.module.scss'
 import {renderElapsedString} from '../../helpers/helpers';
 import {AiFillEdit} from 'react-icons/ai'
 import {BsFillTrashFill} from 'react-icons/bs'
 
 export const Timer = (props) => {
-    const elapsedString = renderElapsedString(props.elapsed)
+    //emulating forceUpdate for functional component
+    const [, forceUpdate] = useReducer(x => x + 1, 0);
+
+    const elapsedString = renderElapsedString(props.elapsed,props.runningSince)
 
     const handleTrashClick=()=>{
         props.onTrashClick(props.id)
     }
+
+    useEffect(()=>{
+       const forceUpdateInterval=setInterval(()=>forceUpdate(),50)
+        return ()=> clearInterval(forceUpdateInterval)
+    })
+
     return (
         <div className={s.timerContainer}>
             <div className={s.content}>
