@@ -6,6 +6,10 @@ import {BsFillTrashFill} from 'react-icons/bs'
 
 export const Timer = (props) => {
     const elapsedString = renderElapsedString(props.elapsed)
+
+    const handleTrashClick=()=>{
+        props.onTrashClick(props.id)
+    }
     return (
         <div className={s.timerContainer}>
             <div className={s.content}>
@@ -18,7 +22,7 @@ export const Timer = (props) => {
                 </div>
                 <div className={s.extraContent}>
                     <span onClick={props.onEditClick}><i><AiFillEdit/></i></span>
-                    <span><i><BsFillTrashFill/></i></span>
+                    <span><i><BsFillTrashFill onClick={handleTrashClick}/></i></span>
                 </div>
                 <div className={s.bottomButton}>
                     <button>Start</button>

@@ -51,9 +51,21 @@ export const TimersDashBoard = () => {
         setTimers(updatedTimersArray)
     }
 
+    const handleTrashClick = (timerId) => {
+        deleteTimer(timerId)
+    }
+
+    const deleteTimer = (timerId) => {
+        const updatedTimersArray = timers.filter(timer => timer.id !== timerId)
+        setTimers(updatedTimersArray)
+    }
+
     return (
         <div>
-            <EditableTimersList timers={timers} onFormSubmit={handleEditFormSubmit}/>
+            <EditableTimersList
+                timers={timers}
+                onFormSubmit={handleEditFormSubmit}
+                onTrashClick={handleTrashClick}/>
             <ToggleableTimerForm onFormSubmit={handleCreateFormSubmit}/>
         </div>
     );

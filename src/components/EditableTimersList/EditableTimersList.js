@@ -11,6 +11,7 @@ export const EditableTimersList = (props) => {
             elapsed={timer.elapsed}
             runningSince={timer.runningSince}
             onFormSubmit={props.onFormSubmit}
+            onTrashClick={props.onTrashClick}
         />
     ))
     return (
