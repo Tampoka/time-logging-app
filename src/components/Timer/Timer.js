@@ -26,7 +26,7 @@ export const Timer = (props) => {
                     <h3>{props.title}</h3>
                 </div>
                 <div className={s.meta}>{props.project}</div>
-                <div className={s.description}>
+                <div className={s.timer}>
                     <h2>{elapsedString}</h2>
                 </div>
                 <div className={s.extraContent}>
