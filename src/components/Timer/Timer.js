@@ -3,20 +3,30 @@ import s from './Timer.module.scss'
 import {renderElapsedString} from '../../helpers/helpers';
 import {AiFillEdit} from 'react-icons/ai'
 import {BsFillTrashFill} from 'react-icons/bs'
+import {TimerActionButton} from '../TimerActionButton/TimerActionButton';
 
 export const Timer = (props) => {
     //emulating forceUpdate for functional component
     const [, forceUpdate] = useReducer(x => x + 1, 0);
 
-    const elapsedString = renderElapsedString(props.elapsed,props.runningSince)
+    const elapsedString = renderElapsedString(props.elapsed, props.runningSince)
 
-    const handleTrashClick=()=>{
+    const handleTrashClick = () => {
         props.onTrashClick(props.id)
     }
 
-    useEffect(()=>{
-       const forceUpdateInterval=setInterval(()=>forceUpdate(),50)
-        return ()=> clearInterval(forceUpdateInterval)
+    const handleStartClick = () => {
+        props.onStartClick(props.id)
+    }
+
+    const handleStopClick = () => {
+        props.onStopClick(props.id)
+    }
+
+
+    useEffect(() => {
+        const forceUpdateInterval = setInterval(() => forceUpdate(), 50)
+        return () => clearInterval(forceUpdateInterval)
     })
 
     return (
@@ -34,7 +44,11 @@ export const Timer = (props) => {
                     <span><i><BsFillTrashFill onClick={handleTrashClick}/></i></span>
                 </div>
                 <div className={s.bottomButton}>
-                    <button>Start</button>
+                    <TimerActionButton
+                        timerIsRunning={!!props.runningSince}
+                        onStartClick={handleStartClick}
+                        onStopClick={handleStopClick}
+                    />
                 </div>
             </div>
         </div>
