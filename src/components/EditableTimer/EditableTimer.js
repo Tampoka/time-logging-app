@@ -44,7 +44,10 @@ export const EditableTimer = (props) => {
                 elapsed={props.elapsed}
                 runningSince={props.runningSince}
                 onEditClick={handleEditClick}
-                onTrashClick={props.onTrashClick}/>
+                onTrashClick={props.onTrashClick}
+                onStartClick={props.onStartClick}
+                onStopClick={props.onStopClick}
+            />
         );
     }
 
