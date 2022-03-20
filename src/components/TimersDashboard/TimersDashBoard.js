@@ -1,8 +1,9 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {EditableTimersList} from '../EditableTimersList/EditableTimersList';
 import {ToggleableTimerForm} from '../ToggleableTimerForm/ToggleableTimerForm';
 import {v4} from 'uuid';
 import {newTimer} from '../../helpers/helpers';
+import {getTimers} from '../../client/client';
 
 export const TimersDashBoard = () => {
     const timersArray = [
@@ -22,7 +23,14 @@ export const TimersDashBoard = () => {
         },
     ]
 
-    const [timers, setTimers] = useState(timersArray)
+    const [timers, setTimers] = useState([])
+
+    const loadTimersFromServer = () => {
+        getTimers((serverTimers) => (
+                setTimers(serverTimers)
+            )
+        )
+    }
 
     const handleCreateFormSubmit = (timer) => {
         createTimer(timer)
@@ -97,6 +105,12 @@ export const TimersDashBoard = () => {
         })
         setTimers(updatedTimersArray)
     }
+
+    useEffect(() => {
+        loadTimersFromServer()
+        // setInterval(loadTimersFromServer, 5000)
+    },[])
+
     return (
         <div>
             <EditableTimersList
