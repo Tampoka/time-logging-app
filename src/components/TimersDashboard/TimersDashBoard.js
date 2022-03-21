@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import {EditableTimersList} from '../EditableTimersList/EditableTimersList';
 import {ToggleableTimerForm} from '../ToggleableTimerForm/ToggleableTimerForm';
 import {newTimer} from '../../helpers/helpers';
-import {getTimers, serverStopTimer} from '../../client/client';
+import {getTimers, serverDeleteTimer, serverStopTimer} from '../../client/client';
 import {serverStartTimer} from '../../client/client';
 
 export const TimersDashBoard = () => {
@@ -66,6 +66,7 @@ export const TimersDashBoard = () => {
     const deleteTimer = (timerId) => {
         const updatedTimersArray = timers.filter(timer => timer.id !== timerId)
         setTimers(updatedTimersArray)
+        serverDeleteTimer()
     }
 
     const handleStartClick = (timerId) => {
@@ -87,9 +88,17 @@ export const TimersDashBoard = () => {
                 return timer
             }
         })
+        //"optimistic updating" - updating the client locally before waiting to hear from the server
         setTimers(updatedTimersArray)
         serverStartTimer({id: timerId, start: now})
     }
+
+    // instantaneous feedback vs noticeable delay between action and the response
+/*    const startTimer=(timerId)=>{
+        const now=Date.now()
+        serverStartTimer({id:timerId,start:now})
+            .then(loadTimersFromServer)
+    }*/
 
     const stopTimer = (timerId) => {
         const now = Date.now()

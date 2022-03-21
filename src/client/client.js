@@ -30,7 +30,7 @@ export function updateTimer(data) {
     }).then(checkStatus);
 }
 
-export function deleteTimer(data) {
+export function serverDeleteTimer(data) {
     return fetch('/api/timers', {
         method: 'delete',
         body: JSON.stringify(data),
