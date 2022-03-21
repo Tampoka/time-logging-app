@@ -39,7 +39,7 @@ export const TimersDashBoard = () => {
     const createTimer = (timer) => {
         const t = newTimer(timer)
         setTimers(timers.concat(t))
-        serverCreateTimer()
+        serverCreateTimer(t)
     }
 
     const handleEditFormSubmit = (attrs) => {
@@ -58,7 +58,7 @@ export const TimersDashBoard = () => {
             }
         })
         setTimers(updatedTimersArray)
-        serverUpdateTimer()
+        serverUpdateTimer(attrs)
     }
 
     const handleTrashClick = (timerId) => {
@@ -68,7 +68,7 @@ export const TimersDashBoard = () => {
     const deleteTimer = (timerId) => {
         const updatedTimersArray = timers.filter(timer => timer.id !== timerId)
         setTimers(updatedTimersArray)
-        serverDeleteTimer()
+        serverDeleteTimer({id:timerId})
     }
 
     const handleStartClick = (timerId) => {
