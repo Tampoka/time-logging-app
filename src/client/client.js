@@ -19,7 +19,7 @@ export function createTimer(data) {
     }).then(checkStatus);
 }
 
-export function updateTimer(data) {
+export function serverUpdateTimer(data) {
     return fetch('/api/timers', {
         method: 'put',
         body: JSON.stringify(data),

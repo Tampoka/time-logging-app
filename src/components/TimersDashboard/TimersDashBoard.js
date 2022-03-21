@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import {EditableTimersList} from '../EditableTimersList/EditableTimersList';
 import {ToggleableTimerForm} from '../ToggleableTimerForm/ToggleableTimerForm';
 import {newTimer} from '../../helpers/helpers';
-import {getTimers, serverDeleteTimer, serverStopTimer} from '../../client/client';
+import {getTimers, serverDeleteTimer, serverStopTimer, serverUpdateTimer} from '../../client/client';
 import {serverStartTimer} from '../../client/client';
 
 export const TimersDashBoard = () => {
@@ -57,6 +57,7 @@ export const TimersDashBoard = () => {
             }
         })
         setTimers(updatedTimersArray)
+        serverUpdateTimer()
     }
 
     const handleTrashClick = (timerId) => {
