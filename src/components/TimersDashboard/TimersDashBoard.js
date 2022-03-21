@@ -1,27 +1,27 @@
 import React, {useEffect, useState} from 'react';
 import {EditableTimersList} from '../EditableTimersList/EditableTimersList';
 import {ToggleableTimerForm} from '../ToggleableTimerForm/ToggleableTimerForm';
-import {v4} from 'uuid';
 import {newTimer} from '../../helpers/helpers';
-import {getTimers} from '../../client/client';
+import {getTimers, serverStopTimer} from '../../client/client';
+import {serverStartTimer} from '../../client/client';
 
 export const TimersDashBoard = () => {
-    const timersArray = [
-        {
-            title: 'Practice squat',
-            project: 'Gym Chores',
-            id: v4(),
-            elapsed: 5456099,
-            runningSince: Date.now(),
-        },
-        {
-            title: 'Bake squash',
-            project: 'Kitchen Chores',
-            id: v4(),
-            elapsed: 1273998,
-            runningSince: null,
-        },
-    ]
+    /*    const timersArray = [
+            {
+                title: 'Practice squat',
+                project: 'Gym Chores',
+                id: v4(),
+                elapsed: 5456099,
+                runningSince: Date.now(),
+            },
+            {
+                title: 'Bake squash',
+                project: 'Kitchen Chores',
+                id: v4(),
+                elapsed: 1273998,
+                runningSince: null,
+            },
+        ]*/
 
     const [timers, setTimers] = useState([])
 
@@ -88,6 +88,7 @@ export const TimersDashBoard = () => {
             }
         })
         setTimers(updatedTimersArray)
+        serverStartTimer({id: timerId, start: now})
     }
 
     const stopTimer = (timerId) => {
@@ -104,12 +105,13 @@ export const TimersDashBoard = () => {
             }
         })
         setTimers(updatedTimersArray)
+        serverStopTimer({id:timerId,stop:now})
     }
 
     useEffect(() => {
         loadTimersFromServer()
         // setInterval(loadTimersFromServer, 5000)
-    },[])
+    }, [])
 
     return (
         <div>

@@ -41,7 +41,7 @@ export function deleteTimer(data) {
     }).then(checkStatus);
 }
 
-export function startTimer(data) {
+export function serverStartTimer(data) {
     return fetch('/api/timers/start', {
         method: 'post',
         body: JSON.stringify(data),
@@ -52,7 +52,7 @@ export function startTimer(data) {
     }).then(checkStatus);
 }
 
-export function stopTimer(data) {
+export function serverStopTimer(data) {
     return fetch('/api/timers/stop', {
         method: 'post',
         body: JSON.stringify(data),
