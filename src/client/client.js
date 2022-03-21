@@ -8,7 +8,7 @@ export function getTimers(success) {
         .then(success);
 }
 
-export function createTimer(data) {
+export function serverCreateTimer(data) {
     return fetch('/api/timers', {
         method: 'post',
         body: JSON.stringify(data),
