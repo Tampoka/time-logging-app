@@ -7,23 +7,30 @@
         "runningSince": null
     },
     {
-        "title": "Clear paper jam",
-        "project": "Office Chores",
-        "elapsed": 191407219857,
-        "id": "a73c1d19-f32d-4aff-b470-cea4e792406a",
-        "runningSince": null
-    },
-    {
-        "title": "Cool",
-        "project": "Project",
-        "id": "dd1c3534-7234-46c2-b51c-9b6e78edf42c",
-        "elapsed": 10400,
-        "runningSince": null
-    },
-    {
         "title": "Learning Node. I really do...",
         "project": "Is it working?",
         "id": "a73c1d19-f32d-4aff-b470-cea4e7924111",
+        "elapsed": 74969,
+        "runningSince": null
+    },
+    {
+        "title": "Another timer",
+        "project": "Pomodoro technic",
+        "id": "261ddbdb-05fc-4882-b4c1-5e5dff1b814b",
+        "elapsed": 420447,
+        "runningSince": null
+    },
+    {
+        "title": "Timer",
+        "project": "Project",
+        "id": "3029f0e0-9779-42c9-b4c7-01b200e46a8e",
+        "elapsed": 0,
+        "runningSince": null
+    },
+    {
+        "title": "Timer",
+        "project": "Project",
+        "id": "963e0b49-f3da-4745-b5cc-6a7e10c6a15a",
         "elapsed": 0,
         "runningSince": null
     }

@@ -1,5 +1,6 @@
 import React from 'react';
 import {EditableTimer} from '../EditableTimer/EditableTimer';
+import s from './EditableTimerList.module.scss'
 
 export const EditableTimersList = (props) => {
     const mappedTimers = props.timers.map(timer => (
@@ -17,7 +18,7 @@ export const EditableTimersList = (props) => {
         />
     ))
     return (
-        <div>{mappedTimers}</div>
+        <div className={s.timersList}>{mappedTimers}</div>
     );
 };
 
