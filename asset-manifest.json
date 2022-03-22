@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/time-logging-app/static/css/main.ecf70b40.css",
+    "main.js": "/time-logging-app/static/js/main.3ea6edc1.js",
+    "static/js/787.268270be.chunk.js": "/time-logging-app/static/js/787.268270be.chunk.js",
+    "index.html": "/time-logging-app/index.html",
+    "main.ecf70b40.css.map": "/time-logging-app/static/css/main.ecf70b40.css.map",
+    "main.3ea6edc1.js.map": "/time-logging-app/static/js/main.3ea6edc1.js.map",
+    "787.268270be.chunk.js.map": "/time-logging-app/static/js/787.268270be.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.ecf70b40.css",
+    "static/js/main.3ea6edc1.js"
+  ]
+}
