@@ -10,7 +10,7 @@
         "title": "Learning Node. I really do...",
         "project": "Is it working?",
         "id": "a73c1d19-f32d-4aff-b470-cea4e7924111",
-        "elapsed": 74969,
+        "elapsed": 77281,
         "runningSince": null
     },
     {
@@ -25,7 +25,7 @@
         "project": "Project",
         "id": "3029f0e0-9779-42c9-b4c7-01b200e46a8e",
         "elapsed": 0,
-        "runningSince": null
+        "runningSince": 1647946865788
     },
     {
         "title": "Timer",

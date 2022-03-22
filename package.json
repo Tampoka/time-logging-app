@@ -2,6 +2,7 @@
   "name": "time-logging-app",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://Tampoka.github.io/time-logging-app",
   "dependencies": {
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^12.0.0",
@@ -20,6 +21,8 @@
     "start-server": "node server.js",
     "build": "react-scripts build",
     "test": "react-scripts test",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "eject": "react-scripts eject"
   },
   "proxy": "http://localhost:5000",
@@ -43,6 +46,7 @@
   },
   "devDependencies": {
     "concurrently": "^7.0.0",
+    "gh-pages": "^3.2.3",
     "uuid": "^8.3.2"
   }
 }
