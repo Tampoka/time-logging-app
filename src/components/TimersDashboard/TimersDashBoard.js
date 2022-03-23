@@ -2,26 +2,32 @@ import React, {useEffect, useState} from 'react';
 import {EditableTimersList} from '../EditableTimersList/EditableTimersList';
 import {ToggleableTimerForm} from '../ToggleableTimerForm/ToggleableTimerForm';
 import {newTimer} from '../../helpers/helpers';
-import {getTimers, serverCreateTimer, serverDeleteTimer, serverStopTimer, serverUpdateTimer} from '../../client/client';
-import {serverStartTimer} from '../../client/client';
+import {
+    getTimers,
+    serverCreateTimer,
+    serverDeleteTimer,
+    serverStartTimer,
+    serverStopTimer,
+    serverUpdateTimer
+} from '../../client/client';
 
 export const TimersDashBoard = () => {
-    /*    const timersArray = [
-            {
-                title: 'Practice squat',
-                project: 'Gym Chores',
-                id: v4(),
-                elapsed: 5456099,
-                runningSince: Date.now(),
-            },
-            {
-                title: 'Bake squash',
-                project: 'Kitchen Chores',
-                id: v4(),
-                elapsed: 1273998,
-                runningSince: null,
-            },
-        ]*/
+    /*      const timersArray = [
+              {
+                  title: 'Practice squat',
+                  project: 'Gym Chores',
+                  id: v4(),
+                  elapsed: 5456099,
+                  runningSince: Date.now(),
+              },
+              {
+                  title: 'Bake squash',
+                  project: 'Kitchen Chores',
+                  id: v4(),
+                  elapsed: 1273998,
+                  runningSince: null,
+              },
+          ]*/
 
     const [timers, setTimers] = useState([])
 
@@ -68,7 +74,7 @@ export const TimersDashBoard = () => {
     const deleteTimer = (timerId) => {
         const updatedTimersArray = timers.filter(timer => timer.id !== timerId)
         setTimers(updatedTimersArray)
-        serverDeleteTimer({id:timerId})
+        serverDeleteTimer({id: timerId})
     }
 
     const handleStartClick = (timerId) => {
@@ -96,11 +102,11 @@ export const TimersDashBoard = () => {
     }
 
     // instantaneous feedback vs noticeable delay between action and the response
-/*    const startTimer=(timerId)=>{
-        const now=Date.now()
-        serverStartTimer({id:timerId,start:now})
-            .then(loadTimersFromServer)
-    }*/
+    /*    const startTimer=(timerId)=>{
+            const now=Date.now()
+            serverStartTimer({id:timerId,start:now})
+                .then(loadTimersFromServer)
+        }*/
 
     const stopTimer = (timerId) => {
         const now = Date.now()
@@ -116,12 +122,12 @@ export const TimersDashBoard = () => {
             }
         })
         setTimers(updatedTimersArray)
-        serverStopTimer({id:timerId,stop:now})
+        serverStopTimer({id: timerId, stop: now})
     }
 
     useEffect(() => {
         loadTimersFromServer()
-        // setInterval(loadTimersFromServer, 5000)
+        setInterval(loadTimersFromServer, 5000)
     }, [])
 
     return (

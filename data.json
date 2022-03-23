@@ -14,24 +14,10 @@
         "runningSince": null
     },
     {
-        "title": "Another timer",
-        "project": "Pomodoro technic",
-        "id": "261ddbdb-05fc-4882-b4c1-5e5dff1b814b",
-        "elapsed": 420447,
-        "runningSince": null
-    },
-    {
         "title": "Timer",
         "project": "Project",
         "id": "3029f0e0-9779-42c9-b4c7-01b200e46a8e",
         "elapsed": 0,
         "runningSince": 1647946865788
-    },
-    {
-        "title": "Timer",
-        "project": "Project",
-        "id": "963e0b49-f3da-4745-b5cc-6a7e10c6a15a",
-        "elapsed": 0,
-        "runningSince": null
     }
 ]
