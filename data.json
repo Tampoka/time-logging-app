@@ -2,7 +2,7 @@
     {
         "title": "Mow the lawn",
         "project": "House Chores",
-        "elapsed": 5523906,
+        "elapsed": 5530853,
         "id": "0a4a79cb-b06d-4cb1-883d-549a1e3b66d7",
         "runningSince": null
     },
@@ -17,7 +17,7 @@
         "title": "Timer",
         "project": "Project",
         "id": "3029f0e0-9779-42c9-b4c7-01b200e46a8e",
-        "elapsed": 0,
-        "runningSince": 1647946865788
+        "elapsed": 7429283884,
+        "runningSince": null
     }
 ]
