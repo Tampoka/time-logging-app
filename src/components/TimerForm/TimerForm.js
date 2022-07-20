@@ -6,9 +6,10 @@ export const TimerForm = (props) => {
     const [titleProps] = useInput(props.title || '')
     const [projectProps] = useInput(props.project || '')
 
+    console.log(props)
     const handleSubmit = () => {
         props.onFormSubmit({
-            id: props.id,
+            id: props.id||null,
             title: titleProps.value,
             project: projectProps.value
         })
@@ -28,8 +29,10 @@ export const TimerForm = (props) => {
                         <input type="text" {...projectProps}/>
                     </div>
                     <div className={s.bottomButtons}>
-                        <button className={s.button} onClick={handleSubmit}>{submitText}</button>
-                        <button className={s.button} onClick={props.onFormClose}>Cancel</button>
+                        <button className={s.button}
+                                onClick={handleSubmit}>{submitText}</button>
+                        <button className={s.button} onClick={props.onFormClose}>Cancel
+                        </button>
                     </div>
                 </div>
             </div>

@@ -42,39 +42,41 @@ export const TimersDashBoard = () => {
         createTimer(timer)
     }
 
-    const createTimer = (timer) => {
+    const createTimer = async(timer) => {
         const t = newTimer(timer)
-        setTimers(timers.concat(t))
-        serverCreateTimer(t)
+        await serverCreateTimer(t)
+            loadTimersFromServer()
+
     }
 
     const handleEditFormSubmit = (attrs) => {
         updateTimer(attrs);
     }
 
-    const updateTimer = (attrs) => {
-        const updatedTimersArray = timers.map((timer) => {
-            if (timer.id === attrs.id) {
-                return Object.assign({}, timer, {
-                    title: attrs.title,
-                    project: attrs.project,
-                })
-            } else {
-                return timer
-            }
-        })
-        setTimers(updatedTimersArray)
-        serverUpdateTimer(attrs)
+    const updateTimer = async(attrs) => {
+        // const updatedTimersArray = timers.map((timer) => {
+        //     if (timer.id === attrs.id) {
+        //         return Object.assign({}, timer, {
+        //             title: attrs.title,
+        //             project: attrs.project,
+        //         })
+        //     } else {
+        //         return timer
+        //     }
+        // })
+        // setTimers(updatedTimersArray)
+        await serverUpdateTimer(attrs)
+        loadTimersFromServer()
     }
 
-    const handleTrashClick = (timerId) => {
+    const handleTrashClick =(timerId) => {
         deleteTimer(timerId)
     }
 
-    const deleteTimer = (timerId) => {
+    const deleteTimer = async(timerId) => {
         const updatedTimersArray = timers.filter(timer => timer.id !== timerId)
-        setTimers(updatedTimersArray)
-        serverDeleteTimer({id: timerId})
+        await serverDeleteTimer({id: timerId})
+        loadTimersFromServer()
     }
 
     const handleStartClick = (timerId) => {
@@ -85,7 +87,7 @@ export const TimersDashBoard = () => {
         stopTimer(timerId);
     }
 
-    const startTimer = (timerId) => {
+    const startTimer = async(timerId) => {
         const now = Date.now()
         const updatedTimersArray = timers.map((timer) => {
             if (timer.id === timerId) {
@@ -97,8 +99,8 @@ export const TimersDashBoard = () => {
             }
         })
         //"optimistic updating" - updating the client locally before waiting to hear from the server
-        setTimers(updatedTimersArray)
-        serverStartTimer({id: timerId, start: now})
+        await serverStartTimer({id: timerId, start: now})
+        loadTimersFromServer()
     }
 
     // instantaneous feedback vs noticeable delay between action and the response
@@ -108,7 +110,7 @@ export const TimersDashBoard = () => {
                 .then(loadTimersFromServer)
         }*/
 
-    const stopTimer = (timerId) => {
+    const stopTimer = async(timerId) => {
         const now = Date.now()
         const updatedTimersArray = timers.map((timer) => {
             if (timer.id === timerId) {
@@ -121,14 +123,16 @@ export const TimersDashBoard = () => {
                 return timer
             }
         })
-        setTimers(updatedTimersArray)
-        serverStopTimer({id: timerId, stop: now})
+        await serverStopTimer({id: timerId, stop: now})
+        loadTimersFromServer()
     }
 
     useEffect(() => {
         loadTimersFromServer()
-        setInterval(loadTimersFromServer, 5000)
+        // setInterval(loadTimersFromServer, 5000)
     }, [])
+
+    console.log(timers)
 
     return (
         <div>

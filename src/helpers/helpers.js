@@ -32,7 +32,7 @@ export function newTimer(attrs = {}) {
     const timer = {
         title: attrs.title || 'Timer',
         project: attrs.project || 'Project',
-        id: v4(),
+        // id: v4(),
         elapsed: 0,
         runningSince: null
     };
