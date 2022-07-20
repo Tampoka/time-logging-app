@@ -1,5 +1,7 @@
+import {baseUrl} from './api-config';
+
 export function getTimers(success) {
-    return fetch('/api/timers', {
+    return fetch(baseUrl, {
         headers: {
             Accept: 'application/json',
         },
@@ -9,7 +11,7 @@ export function getTimers(success) {
 }
 
 export function serverCreateTimer(data) {
-    return fetch('/api/timers', {
+    return fetch(baseUrl, {
         method: 'post',
         body: JSON.stringify(data),
         headers: {
@@ -20,7 +22,7 @@ export function serverCreateTimer(data) {
 }
 
 export function serverUpdateTimer(data) {
-    return fetch('/api/timers', {
+    return fetch(baseUrl, {
         method: 'put',
         body: JSON.stringify(data),
         headers: {
@@ -31,7 +33,7 @@ export function serverUpdateTimer(data) {
 }
 
 export function serverDeleteTimer(data) {
-    return fetch('/api/timers', {
+    return fetch(baseUrl, {
         method: 'delete',
         body: JSON.stringify(data),
         headers: {
@@ -42,7 +44,7 @@ export function serverDeleteTimer(data) {
 }
 
 export function serverStartTimer(data) {
-    return fetch('/api/timers/start', {
+    return fetch(`${baseUrl}/start`, {
         method: 'post',
         body: JSON.stringify(data),
         headers: {
@@ -53,7 +55,7 @@ export function serverStartTimer(data) {
 }
 
 export function serverStopTimer(data) {
-    return fetch('/api/timers/stop', {
+    return fetch(`${baseUrl}/stop`, {
         method: 'post',
         body: JSON.stringify(data),
         headers: {

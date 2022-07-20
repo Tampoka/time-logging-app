@@ -43,8 +43,7 @@ export function newTimer(attrs = {}) {
 export function findById(array, id, cb) {
     array.forEach((el) => {
         if (el.id === id) {
-            cb(el);
-            return;
+            return cb(el);
         }
     });
 }

@@ -2,7 +2,7 @@
     {
         "title": "Mow the lawn",
         "project": "House Chores",
-        "elapsed": 5530853,
+        "elapsed": 8485109,
         "id": "0a4a79cb-b06d-4cb1-883d-549a1e3b66d7",
         "runningSince": null
     },
@@ -10,12 +10,12 @@
         "title": "Learning Node. I really do...",
         "project": "Is it working?",
         "id": "a73c1d19-f32d-4aff-b470-cea4e7924111",
-        "elapsed": 81748,
+        "elapsed": 123994,
         "runningSince": null
     },
     {
-        "title": "Timer",
-        "project": "Project",
+        "title": "Adjust fonts",
+        "project": "Social network",
         "id": "3029f0e0-9779-42c9-b4c7-01b200e46a8e",
         "elapsed": 7429292970,
         "runningSince": null
