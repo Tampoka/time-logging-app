@@ -10,6 +10,15 @@ export function getTimers(success) {
         .then(success);
 }
 
+export function getTimer(timerId) {
+    return fetch(`${baseUrl}/${timerId}`, {
+        headers: {
+            Accept: 'application/json',
+        },
+    }).then(checkStatus)
+        .then(parseJSON)
+}
+
 export function serverCreateTimer(data) {
     return fetch(baseUrl, {
         method: 'post',
@@ -45,7 +54,7 @@ export function serverDeleteTimer(data) {
 
 export function serverStartTimer(data) {
     return fetch(`${baseUrl}/start`, {
-        method: 'post',
+        method: 'put',
         body: JSON.stringify(data),
         headers: {
             'Accept': 'application/json',
@@ -54,9 +63,9 @@ export function serverStartTimer(data) {
     }).then(checkStatus);
 }
 
-export function serverStopTimer(data) {
+export async function serverStopTimer(data) {
     return fetch(`${baseUrl}/stop`, {
-        method: 'post',
+        method: 'put',
         body: JSON.stringify(data),
         headers: {
             'Accept': 'application/json',

@@ -45,7 +45,7 @@ app.post('/api/timers', (req, res) => {
     });
 });
 
-app.post('/api/timers/start', (req, res) => {
+app.put('/api/timers/start', (req, res) => {
     fs.readFile(DATA_FILE, (err, data) => {
         const timers = JSON.parse(data);
         timers.forEach((timer) => {
@@ -59,7 +59,7 @@ app.post('/api/timers/start', (req, res) => {
     });
 });
 
-app.post('/api/timers/stop', (req, res) => {
+app.put('/api/timers/stop', (req, res) => {
     fs.readFile(DATA_FILE, (err, data) => {
         const timers = JSON.parse(data);
         timers.forEach((timer) => {

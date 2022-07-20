@@ -3,6 +3,7 @@ import {EditableTimersList} from '../EditableTimersList/EditableTimersList';
 import {ToggleableTimerForm} from '../ToggleableTimerForm/ToggleableTimerForm';
 import {newTimer} from '../../helpers/helpers';
 import {
+    getTimer,
     getTimers,
     serverCreateTimer,
     serverDeleteTimer,
@@ -54,17 +55,6 @@ export const TimersDashBoard = () => {
     }
 
     const updateTimer = async(attrs) => {
-        // const updatedTimersArray = timers.map((timer) => {
-        //     if (timer.id === attrs.id) {
-        //         return Object.assign({}, timer, {
-        //             title: attrs.title,
-        //             project: attrs.project,
-        //         })
-        //     } else {
-        //         return timer
-        //     }
-        // })
-        // setTimers(updatedTimersArray)
         await serverUpdateTimer(attrs)
         loadTimersFromServer()
     }
@@ -74,7 +64,6 @@ export const TimersDashBoard = () => {
     }
 
     const deleteTimer = async(timerId) => {
-        const updatedTimersArray = timers.filter(timer => timer.id !== timerId)
         await serverDeleteTimer({id: timerId})
         loadTimersFromServer()
     }
@@ -89,41 +78,16 @@ export const TimersDashBoard = () => {
 
     const startTimer = async(timerId) => {
         const now = Date.now()
-        const updatedTimersArray = timers.map((timer) => {
-            if (timer.id === timerId) {
-                return Object.assign({}, timer, {
-                    runningSince: now,
-                })
-            } else {
-                return timer
-            }
-        })
-        //"optimistic updating" - updating the client locally before waiting to hear from the server
         await serverStartTimer({id: timerId, start: now})
         loadTimersFromServer()
     }
 
-    // instantaneous feedback vs noticeable delay between action and the response
-    /*    const startTimer=(timerId)=>{
-            const now=Date.now()
-            serverStartTimer({id:timerId,start:now})
-                .then(loadTimersFromServer)
-        }*/
-
     const stopTimer = async(timerId) => {
         const now = Date.now()
-        const updatedTimersArray = timers.map((timer) => {
-            if (timer.id === timerId) {
-                const lastElapsed = now - timer.runningSince
-                return Object.assign({}, timer, {
-                    elapsed: timer.elapsed + lastElapsed,
-                    runningSince: null,
-                })
-            } else {
-                return timer
-            }
-        })
-        await serverStopTimer({id: timerId, stop: now})
+        const timer=await getTimer(timerId)
+        const lastElapsed=(now-timer.runningSince)+timer.elapsed
+
+        await serverStopTimer({id: timerId, stop:lastElapsed})
         loadTimersFromServer()
     }
 
