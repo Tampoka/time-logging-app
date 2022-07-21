@@ -1,4 +1,4 @@
-import React, {useEffect, useReducer} from 'react';
+import React, {useEffect, useReducer, useState} from 'react';
 import s from './Timer.module.scss'
 import {renderElapsedString} from '../../helpers/helpers';
 import {AiFillEdit} from 'react-icons/ai'
@@ -8,23 +8,26 @@ import {TimerActionButton} from '../TimerActionButton/TimerActionButton';
 export const Timer = (props) => {
     //emulating forceUpdate for functional component
     const [, forceUpdate] = useReducer(x => x + 1, 0);
-
-    const elapsedString = renderElapsedString(props.elapsed, props.runningSince)
+    const [stopTime, setStopTime] = useState(false)
+    let elapsedString = renderElapsedString(props.elapsed, props.runningSince)
 
     const handleTrashClick = () => {
         props.onTrashClick(props.id)
     }
 
     const handleStartClick = () => {
+        setStopTime(false)
         props.onStartClick(props.id)
     }
 
     const handleStopClick = () => {
+        setStopTime(true)
         props.onStopClick(props.id)
     }
 
 
     useEffect(() => {
+        if (stopTime) return
         const forceUpdateInterval = setInterval(() => forceUpdate(), 50)
         return () => clearInterval(forceUpdateInterval)
     })
