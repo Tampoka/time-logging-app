@@ -1,7 +1,7 @@
 .timerContainer {
-  width: 300px;
+  width: 200px;
   padding: 16px 20px;
-  margin: 20px;
+  margin: 10px;
   border-radius: 50px;
   background: #e0e0e0;
   box-shadow: 20px 20px 60px #bebebe,
@@ -29,7 +29,7 @@
       justify-content: center;
       min-width: 150px;
       height: 60px;
-      //margin-top: 10px;
+      //margin: 10px;
       align-self: center;
       border-radius: 50px;
       background: #e0e0e0;
@@ -41,7 +41,7 @@
       align-self: flex-end;
 
       span {
-        margin-left: 20px;
+        margin-left: 10px;
 
         i {
           color: #7590cc;

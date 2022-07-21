@@ -84,6 +84,7 @@ export const TimersDashBoard = () => {
 
     return (
         <div>
+            <ToggleableTimerForm onFormSubmit={handleCreateFormSubmit}/>
             <EditableTimersList
                 timers={timers}
                 onFormSubmit={handleEditFormSubmit}
@@ -91,7 +92,6 @@ export const TimersDashBoard = () => {
                 onStartClick={handleStartClick}
                 onStopClick={handleStopClick}
             />
-            <ToggleableTimerForm onFormSubmit={handleCreateFormSubmit}/>
         </div>
     );
 };
