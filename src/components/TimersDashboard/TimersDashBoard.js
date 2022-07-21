@@ -13,22 +13,6 @@ import {
 } from '../../client/client';
 
 export const TimersDashBoard = () => {
-    /*      const timersArray = [
-              {
-                  title: 'Practice squat',
-                  project: 'Gym Chores',
-                  id: v4(),
-                  elapsed: 5456099,
-                  runningSince: Date.now(),
-              },
-              {
-                  title: 'Bake squash',
-                  project: 'Kitchen Chores',
-                  id: v4(),
-                  elapsed: 1273998,
-                  runningSince: null,
-              },
-          ]*/
 
     const [timers, setTimers] = useState([])
 
@@ -43,10 +27,10 @@ export const TimersDashBoard = () => {
         createTimer(timer)
     }
 
-    const createTimer = async(timer) => {
+    const createTimer = async (timer) => {
         const t = newTimer(timer)
         await serverCreateTimer(t)
-            loadTimersFromServer()
+        loadTimersFromServer()
 
     }
 
@@ -54,16 +38,16 @@ export const TimersDashBoard = () => {
         updateTimer(attrs);
     }
 
-    const updateTimer = async(attrs) => {
+    const updateTimer = async (attrs) => {
         await serverUpdateTimer(attrs)
         loadTimersFromServer()
     }
 
-    const handleTrashClick =(timerId) => {
+    const handleTrashClick = (timerId) => {
         deleteTimer(timerId)
     }
 
-    const deleteTimer = async(timerId) => {
+    const deleteTimer = async (timerId) => {
         await serverDeleteTimer({id: timerId})
         loadTimersFromServer()
     }
@@ -76,18 +60,18 @@ export const TimersDashBoard = () => {
         stopTimer(timerId);
     }
 
-    const startTimer = async(timerId) => {
+    const startTimer = async (timerId) => {
         const now = Date.now()
         await serverStartTimer({id: timerId, start: now})
         loadTimersFromServer()
     }
 
-    const stopTimer = async(timerId) => {
+    const stopTimer = async (timerId) => {
         const now = Date.now()
-        const timer=await getTimer(timerId)
-        const lastElapsed=(now-timer.runningSince)+timer.elapsed
+        const timer = await getTimer(timerId)
+        const lastElapsed = (now - timer.runningSince) + timer.elapsed
 
-        await serverStopTimer({id: timerId, stop:lastElapsed})
+        await serverStopTimer({id: timerId, stop: lastElapsed})
         loadTimersFromServer()
     }
 

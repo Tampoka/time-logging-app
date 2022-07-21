@@ -27,7 +27,7 @@ export const ToggleableTimerForm = (props) => {
     } else {
         return (
             <div className={s.plusButton}>
-                <button onClick={handleFormOpen}><i><BsPlusLg/></i></button>
+                <button  onClick={handleFormOpen}><i><BsPlusLg/></i></button>
             </div>
         )
     }

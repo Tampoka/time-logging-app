@@ -1,4 +1,3 @@
-
 export function renderElapsedString(elapsed, runningSince) {
     let totalElapsed = elapsed;
     if (runningSince) {
@@ -38,10 +37,3 @@ export function newTimer(attrs = {}) {
     return timer;
 }
 
-export function findById(array, id, cb) {
-    array.forEach((el) => {
-        if (el.id === id) {
-            return cb(el);
-        }
-    });
-}

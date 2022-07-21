@@ -1,0 +1,21 @@
+button{
+  color: rgba(147, 140, 140, 0.46);
+  padding: 8px 0;
+  width: 150px;
+  font-size: 18px;
+  border-radius: 0.5em;
+  background: #e8e8e8;
+  border: 3px solid #e8e8e8;
+  transition: all .3s;
+  box-shadow: 6px 6px 12px #c5c5c5,
+  -6px -6px 12px #ffffff;
+  font-weight: bold;
+}
+button:hover {
+  border: 3px solid #fff;
+}
+
+button:active {
+  box-shadow: 4px 4px 12px #c5c5c5,
+  -4px -4px 12px #ffffff;
+}
