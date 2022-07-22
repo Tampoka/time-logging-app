@@ -6,7 +6,6 @@ export const TimerForm = (props) => {
     const [titleProps] = useInput(props.title || '')
     const [projectProps] = useInput(props.project || '')
 
-    console.log(props)
     const handleSubmit = () => {
         props.onFormSubmit({
             id: props.id||null,

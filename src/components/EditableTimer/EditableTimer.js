@@ -25,7 +25,6 @@ export const EditableTimer = (props) => {
     const openForm = () => {
         setEditFormOpen(true)
     }
-    console.log(props)
 
     if (editFormOpen) {
         return (

@@ -80,8 +80,6 @@ export const TimersDashBoard = () => {
         // setInterval(loadTimersFromServer, 5000)
     }, [])
 
-    console.log(timers)
-
     return (
         <div>
             <ToggleableTimerForm onFormSubmit={handleCreateFormSubmit}/>
